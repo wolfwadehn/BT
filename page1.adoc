@@ -1,0 +1,12 @@
+= page1
+:imagesdir: img
+
+Sentence 1
+
+image:image2.png[]
+
+changed Sentence 2
+
+added Sentence 2-1
+
+Sentence 3

@@ -1,0 +1,10 @@
+= Cap1 page1
+:imagesdir: img
+
+Sentence 1
+
+image:image2.png[]
+
+Sentence 2
+
+Sentence 3

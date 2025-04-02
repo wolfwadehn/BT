@@ -1,0 +1,168 @@
+= page2
+:imagesdir: img
+
+Sentence 1
+
+image:image2.png[]
+
+Sentence 2
+
+Sentence 3b
+
+= Server Installation
+:imagesdir: img
+:icons: font
+:experimental:
+
+Follow the instructions to install Praxis Server installation along with SQL.
+[IMPORTANT]
+.Administrator Rights
+====
+*Execute this installation with the Computer Login User having administrative privelages.*
+====
+* Execute *Setup.Praxis.<VERSION>.exe* to begin the installation. {Version is a number.}
+
+image::s01praxissetup.png[Praxis Setup,align="center"]
+* Choose  *I accept the agreement* and Click *Next*.
+
+image::s02praxislicenseagreement.png[Praxis License Agreement,align="center"]
+== Step 1 : Install Location
+* Mention the installation directory or accept the installation default _C:\Program Files\Metamation\Praxis_ and click *Next*.
+- _C:\Program Files\Metamation\Praxis_ Install folder will have following folders : Bin, MetaCAM, Samples and Tracker.
+- _C:\Program Data\Metamation\_ Data Folder will have following folders : Praxis, Flux and MetaCAM.
+
+image::s03installationpath.png[Installation Path,align="center"]
+== Step 2 : Components Selection
+
+[%autowidth]
+|===
+|Installation Type | Components
+|Full
+|Server + Desktop client + Engine
+|Client
+|Desktop Client
+|Server
+|Server + Desktop client
+|Station
+|Picks all Stations Terminal like Flux, MetaCAM, RightAngle(Bend Controller), Vulcan(Laser Machine Controller)
+|Custom
+|Picks by user choice.
+|===
+* Choose Full Installation. Pick *Code Senders* and *Bend Code Senders* from Praxis Tools. Now the Installation type changes to *Custom*. Click *Next*.
+
+image::s04serverinstallation.png[Server Installation,align="center"]
+== Step 3 : Choose Install SQL Server  
+
+[IMPORTANT]
+====
+SQL Express 2022 installation is needed only for the Praxis Server.  This option is not available for Client and Sync Installations.  Also this is Checked ON and installed for the first time and can be ignored thereafter. {If already SQL installed in Praxis server, we can ignore Step 3.}
+====
+- In Select Additional Tasks : Click "Install SQL Express " and Click Next.
+- In Ready to Install : Summarize all install features and Click Install.
+
+image::s05sqlinstall.png[Install SQL,align="center"]
+== Step 4 : SQL Server Installation
+
+Once Praxis components are installed, the installer proceeds with the SQL server installation. 
+Accept the License Agreement to proceed and install SQL express with the default options.
+
+image::s06sqlserver.png[SQLServer Install,align="center"]
+
+Once the installation is completed Click Close and complete the installation.
+
+image::s07sqlservercomplete.png[SQL Server Complete,align="center"]
+
+NOTE: Depending on the Windows version, closing the SQL installation may prompt a restart.
+
+== Step 5 : Windows Desktop shortcuts
+* After SQL install, if System not restarts then *Check ON "Launch Praxis"* and Click *Finish*.
+* If System restarts, then Launch Praxis shortcut icon in Desktop or type Praxis in Windows Start Program and *Run as administrator*.
+* _Server installation : Praxis and Praxis License Shortcut icons are available in Desktop_. _Client/SYNC Installation : only Praxis shortcut icon available in Desktop_.
+
+image::s08launchpraxis.png[Launch Praxis,align="center"]
+
+== Step 6 : License Registration
+
+* In _Serial Number_, Type the _Praxis Serial key_ provided by Trumpf Metamation Service Team. Mention _"Registered to"_ as *<Company Name>* and E-Mail. Click *OK*.
+
+image::s09praxisregister.png[PraxisRegister,align="center"]
+
+[TIP]
+====
+In case of Network firewall blocks the license registration or No internet in the Praxis Server PC, then Praxis license is done by Offline activation. Email the *_Prax.request_* from _C:\ProgramData\Metamation\Praxis_ Folder to Trumpf Metamation Service Team. Trumpf Metamation Team will provide the *_Prax.lock_* which needs to be dropped in this folder.
+====
+
+== Step 7 : Initial one time Configuration
+
+* Type Database Name and Set Data Storage Location. Check ON *_Use SQL Server_* and select the SQL server name to connect to the Database. Click *OK*.
+
+image::s10usedatabase.png[Use Database,align="center"]
+
+* Praxis Desktop Client opens showing *Database Connection Succeded* at the lower bottom.
+* Praxis, Flux and MetaCAM Configuration files were created with default config machines or against praxis license machines. The same config will be shared across all Praxis Clients.
+
+image::s11databaseconnectionsuccess.png[Database Connection Success,align="center"]
+
+Welcome screen shows with Windows User LoginName as Praxis Login and Name. First Praxis User is considered as *_Site Admin_*. Provide Email and Password. Click *OK*. [CHECK ON (Remember Me) results in next time login wont prompt for password. CHECK OFF (Remember Me) will prompt for login and password dialog whenever opening praxis application.]
+
+image::s12welcomepraxis.png[Welcome Praxis,align="center"]
+
+== Step 8 : Praxis Sign-in
+
+* Close Praxis and Open praxis which prompts for Praxis Login Credentials.
+
+image::s13praxislogin.png[Praxis Login Credential Page,align="center"]
+
+== Step 9 : Factory Machine Configuration
+
+* Praxis License [All machines enables license bit] : Default Praxis Machine and Material are considered as Factory Configuration.
+* Praxis License [No demo and few machine bit enabled] Those Few machines and default Material are considered as Factory Configuration.
+* (Open -> Import) a new Part from the C:\Program Files\Metamation\Praxis\Samples\Parts and verify if the Part is imported successfully.
+
+image::s14praxiswelcomescreen.png[Praxis Welcome screen,align="center"]
+
+== Note 1 : Praxis Monitor
+
+- Praxis Monitor with Engine Installation (Site admin rights)
+* Praxis Monitor with Engine along with Site Admin Praxis Rights will have following options:
+. Push Praxis configuration, Flux, MetaCAM configuration across all praxis Clients. Also have rights to create New Praxis User Login.
+. Show Agents will show the total engine available to do automation task which is against the Praxis License.
+
+image::s15pmonitor.png[Praxis Monitor Status,align="center"]
+
+- Praxis Monitor without Engine Installation (Site admin rights)
+
+image::s16pmonitorwithoutengine.png[Praxis Monitor without Engine,align="center"]
+
+- Praxis Monitor without Engine Installation (Non Site Admin rights)
+
+image::s17pmonitorwithprogrammerlogin.png[Praxis with Progrmmer login,align="center"]
+
+[IMPORTANT]
+====
+Engine praxis component need to be installation in any PC [Server PC or in any Client install]. Engine Praxis component installed PC should be running 24x7 to do all automation tasks.
+====
+
+== Note 2 : Lock Tracker
+* Click "Praxis License" shortcut available in Praxis Server Desktop. OR "http://localhost:7171/metamation/locktrack" url in any web browser.
+
+This will open Lock Tracker module which have License information, Praxis current session information and Log..
+
+Lock Tracker HOME Page : This show the Praxis Serial Number, Serial Expiry information and Serial bits available information.
+
+image::s18locktrack01.png[Lock Track License Home page,align="center"]
+
+Lock Tracker SESSIONS Page : Current Praxis Server connected information like Praxis Desktop client PC, PMonitor, PEngine Status
+
+image::s19locktrack02.png[Lock Track Session information,align="center"]
+
+Lock Tracker LOG Page : Praxis client start and log off | Pmonitor start and PEngine connect/disconnect status etc., can be viewed in this Logs page.
+
+image::s20locktrack03.png[Praxis Monitor Status,align="center"]
+
+== Note 3 : OpenGL
+* Praxis Server has OpenGL version less than 3.2, then while opening Praxis application which gets closed immediately. (Another way to confirm this: Open _"C:\Program Files\Metamation\Praxis\Bin\Flux.exe"_ which throws error dialog about the OpenGL issue)
+
+image::s21OpenGL.png[OpenGL Issue,align="center"]
+
+* Update _C:\ProgramData\Metamation\Praxis\Prax.ini_, options section with *GLVersion=1* make praxis applicaion open successfully.
