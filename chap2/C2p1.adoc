@@ -3,7 +3,6 @@
 
 Sentence 1
 
-image:image2.png[]
 
 Sentence 2
 
